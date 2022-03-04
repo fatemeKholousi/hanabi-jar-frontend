@@ -1,0 +1,389 @@
+{
+  "general": {
+    "mobile": "Phone Number",
+    "phoneNumber": "Phone Number",
+    "search": "Search",
+    "apply": "Apply",
+    "birthDate": "Birth Date",
+    "registrationDate": "Registration date",
+    "nationalCode": "National ID No.",
+    "birthCertificateNumber": "Identity Card No.",
+    "fullName": "Full Name",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "postalCode": "Postal Code",
+    "submitChanges": "Submit changes",
+    "save": "Save",
+    "cancel": "Cancel",
+    "password": "Password",
+    "repeatPassword": "Repeat Password",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "repeatNewPassword": "Repeat new password",
+    "passwordsDoNotMatch": "Passwords do not match!",
+    "back": "Back",
+    "return": "Back",
+    "choose": "Select",
+    "upload": "Upload",
+    "goToNextStep": "Go to next step",
+    "submitAndReview": "Submit and review",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "success": "Success",
+    "failed": "Failed",
+    "light": "Light",
+    "dark": "Dark",
+    "jobTitle": "Job Title",
+    "jobPosition": "Job Position",
+    "register": "Register",
+    "cancelRegistration": "Cancel registration",
+    "username": "Username",
+    "details": "Details",
+    "disable": "Disable",
+    "changePassword": "Change password",
+    "changePasswordInfo": "Please enter your new password.",
+    "toman": "Toman",
+    "understood": "I understood",
+    "skip": "Skip",
+    "failedToSubmitData": "Error in submitting data",
+    "userInfoUpdatedSuccessfully": "User information updated successfully",
+    "informationUpdatedSuccessfully": "Information updated successfully.",
+    "registrationCompletedSuccessfully": "Registration completed successfully.",
+    "view": "View",
+    "otpPassword": "OTP Password",
+    "type": "Type",
+    "price": "Price",
+    "date": "Date",
+    "previous": "Previous",
+    "next": "Next",
+    "number": "Number",
+    "authentication": "Authentication",
+    "issuePermit": "Issue a permit",
+    "id": "ID",
+    "attribute": "Attribute",
+    "create": "Create",
+    "priority": "Priority",
+    "title": "Title",
+    "assuranceLevel": "Assurance level",
+    "delete": "Delete",
+    "ID": "ID",
+    "applyChanged": "change",
+    "send": "send",
+    "toDayDate": "Date",
+    "appliedSuccessfully": "Applied successfully",
+    "failedToApply": "Failed to Apply",
+    "createdSuccessfully": "Created successfully",
+    "failedToCreate": "Failed to create",
+    "fetchFailed": "Error fetching data",
+    "serviceProvider": "Service Provider",
+    "createdDate": "Created Date",
+    "enable": "Enable",
+    "userCreatedSuccessfully": "User created successfully",
+    "failedToCreateUser": "Failed to create user",
+    "edit": "Edit",
+    "lastSuccessLogin": "Last login",
+    "uri": "uri"
+  },
+  "login": {
+    "login": "Login",
+    "userLogin": "User Login",
+    "userLoginDescription": "Enter your mobile to register or login to your account",
+    "verifyOtpPage": "Confirm Phone Number",
+    "loginFailed": "Entered username or password is incorrect.",
+    "loginSuccessfully":"Login was successfully."
+  },
+  "userPanel": {
+    "serviceHistory": {
+      "serviceHistory": "Service history",
+      "serviceProviders": "Service Providers",
+      "serviceUsageDate": "Service Usage Date",
+      "usedServices": "Used Services",
+      "confirmUserInformation": "Confirm User Information",
+      "confirmMobileOwners": "This phone number is mine legally"
+    },
+    "dashboard": {
+      "dashboard": "Dashboard",
+      "ussdAuthenticator": "USSD Authenticator",
+      "otpAuthenticator": "OTP Authenticator",
+      "pinCode": "Pin code",
+      "repeatPinCode": "Repeat pin code"
+    },
+    "loginRegister": {
+      "confirmUserInformation": "Confirm information",
+      "confirmMobileOwners": "Mobile number belongs to me"
+    }
+  },
+  "serviceProviderPanel": {
+    "dashboard": {
+      "checkingYourAccountState": "Checking your account state",
+      "companyLegalReferralsInformation": "Company legal representative information",
+      "position": "Job Title",
+      "birthCertificateFirstPageImage": "Birth certificate's first page image",
+      "nationalCardImage": "National card's image",
+      "referralsOfficialLetter": "Introduction Letter of Agent"
+    },
+    "businessInfo": {
+      "businessInfo": "Business information",
+      "economicalCode": "Economic code",
+      "companyRegistrationNumber": "Company registration number",
+      "companyNameEnglish": "Company Name (English)",
+      "companyNamePersian": "Company Name (Persian)",
+      "companyAddress": "Company Address",
+      "signatoriesLatestOfficialNewspaper": "The Latest Official Newspaper of the Signatories",
+      "statue": "Statue",
+      "userInfoUpdatedSuccessfully": "User information updated successfully"
+    },
+    "financialInfo": {
+      "financialInfo": "Financial info",
+      "accountHolderName": "Account holder name",
+      "accountNumber": "Account Number",
+      "shebaNumber": "Shaba Number",
+      "bankName": "Bank Name",
+      "branchName": "Branch Name",
+      "branchCode": "Branch Code",
+      "financialInfoSubmitted": "Financial info submitted",
+      "financialInfoFailedToSubmit": "Financial info failed to submit"
+    },
+    "ceoInformation": {
+      "ceoInformation": "Account holder/Signatories holders"
+    },
+    "serviceManagement": {
+      "serviceManagement": "Service management",
+      "chooseService": "Choose service",
+      "chooseServiceTip": "Please choose a service.",
+      "changeServiceWarning": "In order to change active services or active authenticators, Contact MCI contact affairs.",
+      "activeServices": "Active services",
+      "activeAuthenticators": "Active authenticators",
+      "chooseAuthenticator": "Choose authenticator",
+      "chooseAuthenticatorTip": "Please choose a authenticator",
+      "authenticators": "Authenticators",
+      "IDENTITY": "Identity",
+      "ATTRIBUTE": "Attribute",
+      "AUTHENTICATION": "Authentication",
+      "AUTHORIZATION": "Authorization"
+    },
+    "connectionSettings": {
+      "connectionSettings": "Connection Settings",
+      "systemID": "System ID",
+      "returnAddress": "Return address",
+      "returnAddressTip": "Separate addresses using ','",
+      "systemAddress": "System address",
+      "regenerateSystemPassword": "Regenerate system password",
+      "jwksEndpoint": "JWKS-URI"
+    }
+  },
+  "loginRegister": {
+    "login": {
+      "accountLogin": "Login",
+      "accountLoginRegisterTip": "No account?",
+      "accountLoginRegister": "register here",
+      "companyNationalID": "Company National ID",
+      "companyDetails": "Company details",
+      "forgotMyPassword": "I forgot my password!"
+    },
+    "forgotPassword": {
+      "forgotPassword": "Forget Password",
+      "forgotPasswordTip": "Please enter the required information so that we can recover your password.",
+      "companyNationalID": "Company National ID",
+      "companyLegalRepresentativeMobile": "Legal Representative Phone No.",
+      "sendOTPCode": "Send OTP code"
+    },
+    "verifyOTP": {
+      "editMobile": "Edit mobile",
+      "confirmMobile": "Confirm mobile",
+      "resendOTPCode": "Resend OTP",
+      "toResendOTPCode": " to send again"
+    },
+    "businessInfo": {
+      "businessInfo": "Business Information",
+      "companyPersianFullName": "Company Full name (Persian)",
+      "companyEnglishFullName": "Company Full name (English)",
+      "companyRegistrationNumber": "Company registration number",
+      "economicalCode": "Economical code",
+      "companyAddress": "Company address",
+      "uploadStatue": "Upload statue",
+      "uploadSignatoriesLatestOfficialNewspaper": "Upload signatories latest official newspaper",
+      "uploadCommitmentLetter": "Upload commitment letter",
+      "commitmentLetter": "Letter Of Commitment"
+    },
+    "financialInfo": {
+      "financialInfo": "Financial info",
+      "accountHolderName": "Account holder name",
+      "accountNumber": "Account number",
+      "ShebaNumber": "Sheba number",
+      "bankName": "Bank name",
+      "branchName": "Branch name",
+      "branchCode": "Branch code"
+    },
+    "ceoInformation": {
+      "ceoInformation": "Information of Chairmen",
+      "companyLegalRepresentativeInformation": "Company's legal representative information",
+      "uploadReferralsOfficialLetter": "Introduction Letter of Agent",
+      "uploadNationalCardImage": "National ID Card",
+      "uploadBirthCertificateFirstPage": "1st Page of Identity Card"
+    },
+    "register": {
+      "createAccount": "Register",
+      "createAccountTipTitle": "Do you have an account?",
+      "createAccountTipAction": "Login",
+      "companyNationalID": "Company National ID",
+      "companyLegallyRepresentativeMobile": "Legal Representative Phone No.",
+      "registerRulesAndConditionsTipTitle": "I have read and accept all the",
+      "registerRulesAndConditionsTipAction": "Rules and Regulations"
+    },
+    "reviewInfo": {
+      "reviewInfo": "Review information",
+      "finalConfirmAndRegister": "Final confirmation and register",
+      "editInformation": "Edit information"
+    },
+    "createRequestDone": "First step of creating user has been completed successfully"
+  },
+  "operatorPanel": {
+    "dashboard": {
+      "numberOfNewCustomers": "New subscribers",
+      "numberOfCustomers": "Total subscribers"
+    },
+    "login": {
+      "loginToOperatorPanel": "Login to operator's panel"
+    },
+    "userManagement": {
+      "userManagement": "User Management",
+      "createOperator": "Create Operator"
+    },
+    "userDetails": {
+      "personalInformation": "Personal information",
+      "personalProperties": "Personal properties",
+      "uniqueID": "Unique ID",
+      "passwordChangedSuccessfully": "User password changed successfully.",
+      "passwordChangeFaield": "User password change was failed."
+    },
+    "serviceProviderDetails": {
+      "chooseService": "Choose service",
+      "chooseAuthenticator": "Choose authenticator",
+      "chooseAuthenticatorTip": "Please choose a authenticator",
+      "acceptRequest": "Accept request",
+      "rejectRequest": "Reject request"
+    },
+    "serviceProvidersTable": {
+      "serviceProvidersList": "Service Providers List",
+      "searchInServiceProviders": "Search in Service Providers ...",
+      "serviceProvider": "Service Provider",
+      "serviceProviderPersian": "Service Provider (Persian)",
+      "serviceProviderEnglish": "Service Provider (English)",
+      "companyNationalId": "Company National ID ",
+      "requestsList": "Requests List"
+    },
+    "editPersonDetail": {
+      "personalInformation": "Personal Details",
+      "accressLevel": "Access level"
+    },
+    "defineNewOperator": { "createNewOperator": "Create New Operator" },
+    "defineNewAuthenticator": {
+      "createNewAuthenticator": "Create a New Authenticator",
+      "editAuthenticator": "Edit Authenticator",
+      "LoA": "Level of Assurance (LoA)"
+    },
+    "sendNotification": {
+      "messageText": "Message",
+      "sendNotification": "Send Notification",
+      "title" : "Title",
+      "saveDone":"Notification send successfully.",
+      "saveFailed" : "Save was failed"
+    }
+  },
+  "creditManagement": {
+    "creditManagement": "Credit management",
+    "creditIncrease": "Credit increase",
+    "decreaseCredit": "Credit decrease",
+    "bill": "Bill",
+    "transactionHistory": "Transaction history",
+    "credit": "Credit",
+    "showBill": "Show bill"
+  },
+  "deactivateServiceModal": {
+    "deactivateServiceTipTitle": "In order to activate service, you must login again.",
+    "deactivateServiceTipAction": "Are you sure taking this action?",
+    "disable": "Disable"
+  },
+  "deactivateUserModal": {
+    "deactivateUserTipTitle": "Are you sure disabling this user?",
+    "disable": "Disable"
+  },
+  "creditReportModal": {
+    "yourCurrentBalance": "Your current balance:",
+    "yourMidTermBill": "Your mid-term bill from ",
+    "to": "to",
+    "increaseCredit": "Increase credit"
+  },
+  "generatedPasswordModal": {
+    "generatedPassword": "Generated password: ",
+    "generatedPasswordTip": "Please note the password, it can NOT be restored",
+    "copyGeneratedPassword": "Copy generated password"
+  },
+  "passwordInputBox": {
+    "atLeastANumber": "Contains at least ONE number",
+    "atLeastACapitalLetter": "Contains at least a CAPITAL letter",
+    "atLeast8Letters": "Contains at least 8 characters"
+  },
+  "sideMenu": {
+    "home": "Home",
+    "accountManagement": "Account Management",
+    "usersManagement": "User Management",
+    "serviceProvidersManagement": "Service Providers Management",
+    "accessManagement": "Access Management",
+    "pinsManagement": "Pins Management",
+    "serviceProvidersList": "Service Providers List",
+    "requestsList": "Requests List",
+    "notification": "Send Notification"
+  },
+  "profileMinimalMenu": {
+    "faq": "FAQ",
+    "logout": "Exit"
+  },
+  "mcLoginPanel": {
+    "pleaseEnterYourPhoneNumber": "please enter your phone number",
+    "didntGetTheCode": " haven't received verification code ?",
+    "confirmMobilePhone": "phone number verification",
+    "confirmAccount": "Confirm Accoount",
+    "acceptThisIfYouWantToConfirmYourAccount": "You need to confirm the following to verify your account ",
+    "thisIsMyNumber": "I am owner of this number",
+    "scanThisViaYourPhone": "Scan above QR code To authenticate",
+    "pleaseWait": "please wait",
+    "weAreCheckingYourAccount": "We Are Checking your account ",
+    "yourSignUpFailed": " Your registration failed",
+    "backToApplication": " Return",
+    "tryAgain": " Try Again",
+    "fetchInfoFailed": "Error fetching data",
+    "phoneNumberIsNotExist": "phone number is not exist",
+    "youCancelYourSignUp": "Registration process canceled",
+    "youLoggedInSuccessFully": "you have successfully logged in to your account",
+    "leadToApplication": "leading to website",
+    "allowedTimeToAuthenticateFinished": "allowed time for authenticate finished",
+    "yourAccountSignedUpSuccessFully": "your account signed up successfully",
+    "enterToApplication": "Enter to website"
+  },
+  "validations": {
+    "onlyPersianWords": "Company name can contain numbers, must be greater than 2 words, and must be in Persian",
+    "onlyEnglishWords": "Company name can contain numbers, must be greater than 2 words, and must be in English",
+    "registrationCodeValidationLength": "Company registration code must be between 3 to 8 numbers, must NOT start with 0)",
+    "financialCodeValidation": "Financial code must 12 numbers",
+    "addressValidationMessage": "Invalid input value",
+    "postalCodeValidationMessage": "Invalid postal code",
+    "uploadMessage": "Invalid value",
+    "phoneNumberMessage": "Invalid phone number",
+    "companyNationalIdMessage": "Company national code must be 11 number",
+    "bankAccountNumberMessage": "Account number must be 12 numbers",
+    "shebaNumberMessage": "Shaba number must be 24 numbers",
+    "bankAccountOwnerNumberMessage": "Invalid account owner number",
+    "branchCodeValidationMessage": "Enter numbers",
+    "repeatedPasswordIsNotTheSameMessage": "Entered password are not the same",
+    "passwordIsNotValidMessage": "Invalid password",
+    "nationalCodeIsNotValidMessage": "Invalid national code",
+    "birthCertificateIsNotValidMessage": "Invalid birth certificate number, must be between 8 to 10 numbers",
+    "fullNameValidationMessage": "Invalid value",
+    "dateIsNotValidMessage": "Invalid date",
+    "userNameIsNotValidMessage": "Invalid username",
+    "whatIsHereIsNotValidMessage": "Invalid value"
+  }
+}
