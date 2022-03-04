@@ -1,0 +1,22 @@
+.home--container {
+  background-color: rgb(84, 84, 228);
+  color: blck;
+  header {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+    }
+    button {
+      outline: none;
+      background-color: blue;
+      color: white;
+    }
+  }
+  footer {
+    background-color: rgb(45, 221, 89);
+    height: 200px;
+  }
+  // display: flex;
+}

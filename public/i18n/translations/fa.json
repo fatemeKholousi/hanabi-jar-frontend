@@ -1,0 +1,395 @@
+{
+  "general": {
+    "mobile": "موبایل",
+    "phoneNumber": "شماره همراه",
+    "search": "جستجو",
+    "apply": "ثبت",
+    "birthDate": "تاریخ تولد",
+    "registrationDate": "تاریخ ثبت نام",
+    "nationalCode": "کد ملی",
+    "birthCertificateNumber": "شماره شناسنامه",
+    "fullName": "نام ‌و ‌نام‌خانوادگی",
+    "firstname": "نام",
+    "lastname": "نام‌خانوادگی",
+    "postalCode": "کد پستی",
+    "submitChanges": "ثبت تغییرات",
+    "save": "ذخیره",
+    "cancel": "لغو",
+    "password": "رمز عبور",
+    "repeatPassword": "تکرار رمز عبور",
+    "oldPassword": "رمز عبور قدیمی",
+    "newPassword": "رمز عبور جدید",
+    "repeatNewPassword": "تکرار رمز عبور جدید",
+    "passwordsDoNotMatch": "رمز عبور با رمز عبور تکرار شده یکسان نیست.",
+    "back": "بازگشت",
+    "return": "بازگشت",
+    "choose": "انتخاب کنید",
+    "upload": "انتخاب کنید",
+    "goToNextStep": "رفتن به مرحله بعد",
+    "submitAndReview": "ثبت و بازبینی",
+    "status": "وضعیت",
+    "active": "فعال",
+    "inactive": "غیرفعال",
+    "enable": "فعال کردن",
+    "success": "موفق",
+    "failed": "ناموفق",
+    "light": "روشن",
+    "dark": "تاریک",
+    "jobTitle": "عنوان شغلی",
+    "jobPosition": "سمت شغلی",
+    "register": "ثبت نام",
+    "cancelRegistration": "لغو ثبت نام",
+    "username": "نام کاربری",
+    "details": "جزییات",
+    "disable": "غیرفعال کردن",
+    "changePassword": "تغییر رمز عبور",
+    "changePasswordInfo": "لطفا رمز عبور جدید خود را وارد کنید.",
+    "toman": "تومان",
+    "understood": "متوجه شدم",
+    "skip": "رد شدن",
+    "failedToSubmitData": "مشکلی در ثبت اطلاعات پیش آمده است",
+    "userCreatedSuccessfully": "ساخت کاربر با موفقیت انجام شد",
+    "failedToCreateUser": "ساخت کاربر با خطا مواجه شد!",
+    "userInfoUpdatedSuccessfully": "اطلاعات کاربر با موفقیت به روز شد.",
+    "informationUpdatedSuccessfully": "اطلاعات با موفقیت ثبت شد.",
+    "registrationCompletedSuccessfully": "ثبت نام با موفقیت انجام شد.",
+    "view": "مشاهده",
+    "otpPassword": "رمز عبور یکبار مصرف",
+    "type": "نوع",
+    "price": "قیمت",
+    "date": "تاریخ",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "number": "شماره",
+    "authentication": "احراز هویت",
+    "issuePermit": "صدور مجوز",
+    "ID": "شناسه",
+    "attribute": "صفت",
+    "applyChanged": "اعمال تغییرات",
+    "create": "ایجاد",
+    "title": "عنوان",
+    "send": "ارسال",
+    "edit": "ویرایش",
+    "id": "شناسه",
+    "priority": "اولویت",
+    "assuranceLevel": "سطح اطمینان",
+    "delete": "حذف",
+    "toDayDate": "تاریخ امروز",
+    "appliedSuccessfully": "با موفقیت ثبت شد!",
+    "failedToApply": "خطا در ثبت!",
+    "createdSuccessfully": "باموفقیت ایجاد شد",
+    "failedToCreate": "خطا در ایجاد",
+    "fetchFailed": "خطا در دریافت اطلاعات",
+    "serviceProvider": "سرویس دهنده",
+    "createdDate": "تاریخ ایجاد",
+    "lastSuccessLogin": "آخرین ورود موفق",
+    "uri": "آدرس"
+  },
+  "login": {
+    "login": "ورود",
+    "userLogin": "ورود کاربر",
+    "userLoginDescription": "جهت ثبت نام و یا ورود به حساب کاربری خود لطفا شماره همراه خود را وارد کنید",
+    "verifyOtpPage": "تایید شماره همراه",
+    "loginFailed": "نام کاربری یا گذرواژه وارد شده نادرست است.",
+    "loginSuccessfully": "ورود با موفقیت انجام شد."
+  },
+  "userPanel": {
+    "serviceHistory": {
+      "serviceHistory": "تاریخچه سرویس ها",
+      "serviceProviders": "سرویس دهنده ها",
+      "serviceUsageDate": "تاریخ استفاده از سرویس",
+      "usedServices": "سرویس های استفاده شده",
+      "confirmUserInformation": "تایید اطلاعات کاربری",
+      "confirmMobileOwners": "این شماره متعلق به من می‌باشد."
+    },
+    "dashboard": {
+      "dashboard": "داشبورد",
+      "ussdAuthenticator": "USSD هویت سنج",
+      "otpAuthenticator": "OTP هویت سنج",
+      "pinCode": "پین کد",
+      "repeatPinCode": "تکرار پین کد"
+    },
+    "loginRegister": {
+      "confirmUserInformation": "تایید اطلاعات کاربری",
+      "confirmMobileOwners": "این شماره متعلق به من است."
+    }
+  },
+  "serviceProviderPanel": {
+    "dashboard": {
+      "checkingYourAccountState": "در حال بررسی وضعیت حساب کاربری شما",
+      "companyLegalReferralsInformation": "اطلاعات نماینده قانونی شرکت",
+      "position": "سمت شغلی",
+      "birthCertificateFirstPageImage": "تصویر صفحه اول شناسنامه",
+      "nationalCardImage": "تصویر کارت ملی",
+      "referralsOfficialLetter": "معرفی نامه رسمی نماینده"
+    },
+    "businessInfo": {
+      "businessInfo": "اطلاعات تجاری",
+      "economicalCode": "کد اقتصادی",
+      "companyRegistrationNumber": "شماره ثبت شرکت",
+      "companyNameEnglish": "نام شرکت(انگلیسی)",
+      "companyNamePersian": "نام کامل شرکت(فارسی)",
+      "companyAddress": "آدرس شرکت",
+      "signatoriesLatestOfficialNewspaper": "آخرین روزنامه رسمی صاحبین امضا",
+      "statue": "اساسنامه",
+      "userInfoUpdatedSuccessfully": "اطلاعات کاربر با موفقیت به روز شد.",
+      "commitmentLetter": "تعهد نامه"
+    },
+    "financialInfo": {
+      "financialInfo": "اطلاعات مالی",
+      "accountHolderName": "نام صاحب حساب",
+      "accountNumber": "شماره حساب",
+      "shebaNumber": "شماره شبا",
+      "bankName": "نام بانک",
+      "branchName": "نام شعبه",
+      "branchCode": "کد شعبه",
+      "financialInfoSubmitted": "اطلاعات مالی با موفقیت ثبت شد",
+      "financialInfoFailedToSubmit": "مشکلی در ثبت اطلاعات پیش آمده است"
+    },
+    "ceoInformation": {
+      "ceoInformation": "اطلاعات صاحب/صاحبین امضا"
+    },
+    "serviceManagement": {
+      "serviceManagement": "مدیریت سرویس",
+      "chooseService": "انتخاب سرویس",
+      "chooseServiceTip": "لطفا سرویسی را انتخاب کنید",
+      "changeServiceWarning": "جهت تمایل به تغییر سرویس ها و هویت سنج های فعال، با امور قرار داد های شرکت همراه اول تماس حاصل فرمایید",
+      "activeServices": "سرویس های فعال",
+      "activeAuthenticators": "هویت سنج های فعال",
+      "chooseAuthenticator": "انتخاب هویت سنج",
+      "chooseAuthenticatorTip": "لطفا هویت سنج را انتخاب کنید",
+      "authenticators": "هویت سنج ها",
+      "IDENTITY": "شناسه",
+      "ATTRIBUTE": "صفت",
+      "AUTHENTICATION": "احراز هویت",
+      "AUTHORIZATION": "صدور مجوز"
+    },
+    "connectionSettings": {
+      "connectionSettings": "تنظیمات اتصال",
+      "systemID": "شناسه سامانه",
+      "returnAddress": "آدرس بازگشت",
+      "returnAddressTip": "آدرس های وارد شده را با \", \" جدا کنید ",
+      "systemAddress": "آدرس سامانه",
+      "regenerateSystemPassword": "بازتولید رمز سامانه",
+      "jwksEndpoint": "JWKS-URI"
+    }
+  },
+  "loginRegister": {
+    "login": {
+      "accountLogin": "ورود به حساب کاربری",
+      "accountLoginRegisterTip": "حساب کاربری ندارید؟",
+      "accountLoginRegister": "ثبت نام کنید",
+      "companyNationalID": "شناسه ملی شرکت",
+      "companyDetails": "جزییات شرکت",
+      "forgotMyPassword": "رمز عبور خود را فراموش کرده‌ام!"
+    },
+    "forgotPassword": {
+      "forgotPassword": "فراموشی رمز عبور",
+      "forgotPasswordTip": "لطفا اطلاعات لازم را وارد کنید تا ما بتوانیم رمز عبور شما را بازیابی کنیم .",
+      "companyNationalID": "شناسه ملی شرکت",
+      "companyLegalRepresentativeMobile": "شماره‌همراه نماینده قانونی شرکت",
+      "sendOTPCode": "ارسال کد یکبار مصرف"
+    },
+    "verifyOTP": {
+      "editMobile": "ویرایش شماره",
+      "confirmMobile": "تایید شماره",
+      "resendOTPCode": "ارسال مجدد رمز یکبار مصرف",
+      "toResendOTPCode": " تا ارسال دوباره"
+    },
+    "businessInfo": {
+      "businessInfo": "اطلاعات تجاری",
+      "companyPersianFullName": "نام کامل شرکت(فارسی)",
+      "companyEnglishFullName": "نام شرکت(انگلیسی)",
+      "companyRegistrationNumber": "شماره ثبت شرکت",
+      "economicalCode": "کد اقتصادی",
+      "companyAddress": "آدرس شرکت",
+      "uploadStatue": "آپلود اساسنامه",
+      "uploadSignatoriesLatestOfficialNewspaper": "آپلود آخرین روزنامه رسمی صاحبین امضا",
+      "uploadCommitmentLetter": "آپلود تعهد نامه",
+      "commitmentLetter": "تعهد نامه"
+    },
+    "financialInfo": {
+      "financialInfo": "اطلاعات مالی",
+      "accountHolderName": "نام صاحب حساب",
+      "accountNumber": "شماره حساب",
+      "ShebaNumber": "شماره شبا",
+      "bankName": "نام بانک",
+      "branchName": "نام شعبه",
+      "branchCode": "کد شعبه"
+    },
+    "ceoInformation": {
+      "ceoInformation": "اطلاعات صاحب/صاحبین امضا",
+      "companyLegalRepresentativeInformation": "اطلاعات نماینده قانونی شرکت",
+      "uploadReferralsOfficialLetter": "آپلود معرفی نامه رسمی نماینده",
+      "uploadNationalCardImage": "آپلود تصویر کارت ملی",
+      "uploadBirthCertificateFirstPage": "آپلود تصویر صفحه اول شناسنامه"
+    },
+    "register": {
+      "createAccount": "ایجاد حساب کاربری",
+      "createAccountTipTitle": "حساب کاربری دارید؟",
+      "createAccountTipAction": "وارد شوید",
+      "companyNationalID": "شناسه ملی شرکت",
+      "companyLegallyRepresentativeMobile": "شماره‌همراه نماینده قانونی شرکت",
+      "registerRulesAndConditionsTipTitle": "I acknowledge and confirm allّ",
+      "registerRulesAndConditionsTipAction": "قوانین و شرایط"
+    },
+    "reviewInfo": {
+      "reviewInfo": "بازبینی اطلاعات",
+      "finalConfirmAndRegister": "ثبت و تایید نهایی",
+      "editInformation": "ویرایش اطلاعات"
+    },
+    "createRequestDone": "اولین مرحله ی ساخت کاربر با موفقیت انجام شد"
+  },
+  "operatorPanel": {
+    "dashboard": {
+      "numberOfNewCustomers": "تعداد مشترکین جدید ",
+      "numberOfCustomers": "تعداد مشترکین"
+    },
+    "login": {
+      "loginToOperatorPanel": "ورود به پنل اپراتور"
+    },
+    "userManagement": {
+      "userManagement": "مدیریت کاربران",
+      "createOperator": "ایجاد اپراتور"
+    },
+    "userDetails": {
+      "personalInformation": "جزئیات حساب",
+      "personalProperties": "مشخصات شخصی",
+      "uniqueID": "شناسه منحصر به فرد",
+      "passwordChangedSuccessfully": "گذرواژه کاربر باموفقیت تغییر کرد.",
+      "passwordChangeFaield": "تغییر گذرواژه کاربر ناموفق بود."
+    },
+    "serviceProviderDetails": {
+      "chooseService": "انتخاب سرویس",
+      "chooseAuthenticator": "انتخاب هویت سنج",
+      "chooseAuthenticatorTip": "لطفا هویت سنج را انتخاب کنید",
+      "acceptRequest": "قبول درخواست",
+      "rejectRequest": "رد درخواست"
+    },
+    "serviceProvidersTable": {
+      "serviceProvidersList": "لیست سرویس دهندگان",
+      "searchInServiceProviders": "جستجو در سرویس دهنده ها ...",
+      "serviceProvider": "سرویس دهنده",
+      "serviceProviderPersian": "ارائه دهنده سرویس (فارسی)",
+      "serviceProviderEnglish": "ارائه دهنده سرویس (انگلیسی)",
+      "companyNationalId": "شناسه ملی",
+      "requestsList": "لیست درخواست ها"
+    },
+    "editPersonDetail": {
+      "personalInformation": "اطلاعات شخصی",
+      "accressLevel": "سطح دسترسی"
+    },
+    "defineNewOperator": { "createNewOperator": "تعریف اپراتور جدید" },
+    "defineNewAuthenticator": {
+      "createNewAuthenticator": "ایجاد هویت سنج جدید",
+      "editAuthenticator": "ویرایش هویت سنج",
+      "LoA": "سطح اطمینان"
+    },
+    "sendNotification": {
+      "sendNotification": "ارسال اعلان",
+      "messageText": "متن پیام",
+      "title" : "عنوان",
+      "saveDone":"اعلان با موفقیت ارسال شد.",
+      "saveFailed" : "خطا در ثبت عملیات."
+    }
+  },
+  "creditManagement": {
+    "creditManagement": "مدیریت اعتبارات",
+    "creditIncrease": "افزایش اعتبار",
+    "decreaseCredit": "کاهش اعتبار",
+    "bill": "صورتحساب",
+    "viewBill": "مشاهده صورتحساب",
+    "transactionHistory": "تاریخچه تراکنش ها",
+    "credit": "اعتبار",
+    "paidAmount": "مقدار پرداخت شده",
+    "paymentDate": "تاریخ پرداخت",
+    "showBill": "مشاهده صورتحساب"
+  },
+  "deactivateServiceModal": {
+    "deactivateServiceTipTitle": "چنانچه قصد فعالسازی سرویس را داشتید، لازم است تا در سایت مربوطه دوباره وارد شوید.",
+    "deactivateServiceTipAction": "آیا اطمینان دارید؟",
+    "disable": "غیرفعالسازی"
+  },
+  "deactivateUserModal": {
+    "deactivateUserTipTitle": "آیا از غیرفعالسازی این کاربر اعتماد دارید؟",
+    "disable": "غیرفعالسازی"
+  },
+  "creditReportModal": {
+    "yourCurrentBalance": "اعتبار فعلی شما",
+    "yourMidTermBill": "صورتحساب میان‌دوره شما از",
+    "to": "تا",
+    "increaseCredit": "افزایش اعتبار"
+  },
+  "generatedPasswordModal": {
+    "generatedPassword": "رمز تولید شده",
+    "generatedPasswordTip": "لطفا این رمز را یادداشت کنید، زیرا امکان بازیابی آن وجود ندارد",
+    "copyGeneratedPassword": "کپی رمز تولید شده"
+  },
+  "passwordInputBox": {
+    "atLeastANumber": "شامل حداقل یک عدد",
+    "atLeastACapitalLetter": "شامل حداقل یک حرف بزرگ",
+    "atLeast8Letters": "شامل حداقل ۸ کاراکتر"
+  },
+  "sideMenu": {
+    "home": "صفحه اصلی",
+    "accountManagement": "مدیریت حساب کاربری",
+    "usersManagement": "مدیریت کاربران",
+    "serviceProvidersManagement": "مدیریت سرویس دهندگان",
+    "accessManagement": "مدیریت دسترسی",
+    "pinsManagement": "مدیریت پین‌کد ها",
+    "serviceProvidersList": "لیست سرویس‌دهندگان",
+    "requestsList": "لیست درخواست‌ها",
+    "notification": "ارسال اعلان"
+  },
+  "profileMinimalMenu": {
+    "faq": "سوالات پرتکرار",
+    "logout": "خروج"
+  },
+  "mcLoginPanel": {
+    "pleaseEnterYourPhoneNumber": "لطفا شماره همراه خود را وارد کنید",
+    "didntGetTheCode": "کد را دریافت نکردید؟",
+    "confirmMobilePhone": " تایید شماره همراه",
+    "confirmAccount": "تایید حساب کاربری",
+    "acceptThisIfYouWantToConfirmYourAccount": "برای تایید حساب کاربری خود نیاز است تا موارد زیر را تایید کنید",
+    "thisIsMyNumber": "این شماره متعلق به من می باشد",
+    "scanThisViaYourPhone": "لطفا جهت احراز هویت حساب خود، QR بالا را با تلفن همراه خود اسکن کنید ",
+    "pleaseWait": "لطفا شکیبا باشید",
+    "weAreCheckingYourAccount": "در حال بررسی حساب کاربری",
+    "yourSignUpFailed": "ثبت نام شما ناموفق بوده است",
+    "backToApplication": "بازگشت",
+
+    "tryAgain": "تلاش دوباره",
+    "fetchInfoFailed": "دریافت اطلاعات با خطا مواجه شد",
+    "phoneNumberIsNotExist": "شماره تلفن وارد شده ثبت نشده است",
+    "youCancelYourSignUp": "فرآیند ثبت نام توسط شما لغو شد",
+    "youLoggedInSuccessFully": "شما با موفقیت وارد حساب خود شدید",
+    "leadToApplication": "در حال هدایت به نرم افزار",
+
+    "allowedTimeToAuthenticateFinished": "زمان مجاز برای احراز هویت به پایان رسید",
+    "yourAccountSignedUpSuccessFully": "حساب کاربری شما با موفقیت ساخته شد",
+    "enterToApplication": "ورود "
+  },
+  "validations": {
+    "onlyPersianWords": "نام شرکت باید بیشتر از 2 حرف و با حروف الفبای فارسی باشد،می تواند شامل اعداد باشد",
+    "onlyEnglishWords": "نام شرکت باید بیشتر از 2 حرف و با حروف الفبای انگلیسی باشد ، می تواند شامل اعداد باشد",
+    "registrationCodeValidationLength": "شماره ثبت شرکت باید بین 3 تا 8 رقم باشد (شروع با صفر معتبر نیست)",
+    "financialCodeValidation": "کد اقتصادی باید 12 رقمی باشد",
+    "addressValidationMessage": "عبارت وارد شده معتبر نیست",
+    "postalCodeValidationMessage": "کد پستی معتبر نیست",
+    "uploadMessage": "تصویر معتبر نیست",
+    "phoneNumberMessage": "شماره معتبر نیست",
+    "companyNationalIdMessage": "شناسه ملی شرکت یازده رقمی است",
+    "bankAccountNumberMessage": " شماره حساب 12 رقمی است، لطفا شماره حساب معتبر وارد نمایید",
+    "shebaNumberMessage": " شماره شبا 24 رقمی است ، لطفا شبای معتبر وارد نمایید",
+    "bankAccountOwnerNumberMessage": "نام صاحب حساب معتبر نمی باشد",
+    "branchCodeValidationMessage": "لطفا عدد وارد کنید",
+    "repeatedPasswordIsNotTheSameMessage": "رمز عبور یکسان نیست",
+    "passwordIsNotValidMessage": "رمز عبور معتبر نیست",
+    "nationalCodeIsNotValidMessage": "کد ملی معتبر نیست",
+    "birthCertificateIsNotValidMessage": "شماره شناسنامه معتبر نیست، باید هشت تا ده رقمی باشد",
+    "fullNameValidationMessage": "عبارت وارد شده معتبر نیست",
+    "dateIsNotValidMessage": "تاریخ معتبر نیست",
+    "userNameIsNotValidMessage": "نام کاربری وارد شده معتبر نیست",
+    "whatIsHereIsNotValidMessage": "عبارت وارد شده معتبر نیست"
+  }
+}
