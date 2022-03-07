@@ -1,16 +1,15 @@
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import { getAppLanguages } from "../util";
-import HttpApi from "i18next-http-backend";
+import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
 
 i18n
+  .use(Backend)
   .use(LanguageDetector)
-  .use(HttpApi)
-  .use(initReactI18next)
+  .use(initReactI18next) // bind react-i18next to the instance
   .init({
-    lng: (getAppLanguages() as string) || "fa",
     fallbackLng: "fa",
+    debug: false,
     detection: {
       order: ["localStorage"],
       caches: ["localStorage"],
@@ -23,16 +22,16 @@ i18n
       allowMultiLoading: false,
     },
 
-    debug: false,
-    ns: ["translations"],
-    defaultNS: "translations",
-    fallbackNS: "translations",
-    nsSeparator: "::",
-    keySeparator: "::",
     interpolation: {
-      escapeValue: false,
+      escapeValue: false, // not needed for react!!
     },
+
     react: {
+      // bindI18n: "languageChanged",
+      // bindI18nStore: "",
+      // transEmptyNodeValue: "",
+      // transSupportBasicHtmlNodes: true,
+      // transKeepBasicHtmlNodesFor: ["br", "strong", "i"],
       useSuspense: false,
     },
   });

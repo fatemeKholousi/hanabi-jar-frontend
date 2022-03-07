@@ -6,12 +6,19 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Input } from "antd";
 import { useNavigate } from "react-router";
 import { Switch } from "antd";
+import LanguageSelector from "../components/headers/languageSelector/LanguageSelector";
+import translation from "../utils/i18n/i18n";
+import { useSelector } from "../utils/hooks";
+import { useTranslation } from "react-i18next";
 
 function Home() {
   const navigate = useNavigate();
-  function onChange(checked: boolean) {
-    console.log(`switch to ${checked}`);
-  }
+  const {t} = useTranslation();
+  // const [ t ]= translation;
+
+
+  const { appLanguage } = useSelector((state:any) => state.appLanguageReducer);
+
   return (
     <div className="home--container">
       <header>
@@ -24,12 +31,8 @@ function Home() {
           <li onClick={() => navigate("/contact-us")}>Contact us</li>
         </ul>
 
-        <Switch
-          onChange={onChange}
-          checkedChildren="Persian"
-          unCheckedChildren="English"
-          defaultChecked
-        />
+      
+        <LanguageSelector/>
 
         <Input.Search
           placeholder="input search text"
@@ -48,7 +51,7 @@ function Home() {
 
       <main>
         <div className="main-text">
-          <h1 className="main-title">Write a Good Travel Essay</h1>
+          <h1 className="main-title">{t('general.birthCertificateNumber')}</h1>
 
           <p className="main-dec">
             Welcome home! Now that you're back from your trip, you'd like to
