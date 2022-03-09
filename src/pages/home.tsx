@@ -1,20 +1,23 @@
 import React from "react";
 import "./home.style.scss";
 import mainImage from "./docharkhe.jpg";
-import logo from "./docharkhe-logo.jpg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Input } from "antd";
+import { Input,Divider } from "antd";
 import { useNavigate } from "react-router";
 import { Switch } from "antd";
-import LanguageSelector from "../components/headers/languageSelector/LanguageSelector";
+import LanguageSelector from "../components/languageSelector/LanguageSelector";
 import translation from "../utils/i18n/i18n";
 import { useSelector } from "../utils/hooks";
 import { useTranslation } from "react-i18next";
+import Logo from "../images/logo.png"
+import FirstAuthor from "../images/author-card-jean.jpg"
+import SecondtAuthor from "../images/author-card-lucy.jpg"
+import ThirdtAuthor from "../images/author-card-mark.jpg"
+import FourthAuthor from "../images/author-card-robert.jpg"
 
 function Home() {
   const navigate = useNavigate();
   const {t} = useTranslation();
-  // const [ t ]= translation;
 
 
   const { appLanguage } = useSelector((state:any) => state.appLanguageReducer);
@@ -22,12 +25,15 @@ function Home() {
   return (
     <div className="home--container">
       <header>
-        <img className="header-logo" src={logo} alt="tripium logo" />
+        <img className="header-logo" src={Logo} alt="hanabijar logo" width="400"  />
         <ul className="header-list">
           <li>Home</li>
           <li>َAbout Am I</li>
           <li>Shop</li>
           <li>Blog</li>
+
+          <button onClick={()=>navigate("/admin-panel")}>Go to Admin Panel</button>
+          
           <li onClick={() => navigate("/contact-us")}>Contact us</li>
         </ul>
 
@@ -67,6 +73,17 @@ function Home() {
 
         <img className="main-photo" src={mainImage} alt="Bike photo" />
       </main>
+      <div className="author-cards--container">
+         <Divider style={{ background:"white"}}>Authors</Divider>
+      <div className="author-cards">
+        <img src={FirstAuthor} alt="" width={250} height={100} className="author__card"/>
+        <img src={SecondtAuthor} alt="" width={250} height={100} className="author__card"/>
+        <img src={ThirdtAuthor} alt="" width={250} height={100} className="author__card"/>
+        <img src={FourthAuthor} alt="" width={250} height={100} className="author__card"/>
+      </div>
+     
+
+      </div>
       <footer></footer>
     </div>
   );

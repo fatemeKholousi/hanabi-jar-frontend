@@ -2,9 +2,11 @@
   background-color: rgb(84, 84, 228);
   color: blck;
   header {
-    background-color: green;
+    background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
+
+    border: 10px solid black;
     ul {
       display: flex;
     }
@@ -14,6 +16,19 @@
       color: white;
     }
   }
+  .author-cards--container {
+    background-color: black;
+    color: white;
+    .author-cards {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      .author__card {
+        border-radius: 12px;
+      }
+    }
+  }
+
   footer {
     background-color: rgb(45, 221, 89);
     height: 200px;
