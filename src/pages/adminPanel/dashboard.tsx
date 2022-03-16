@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import SideBar from "../../components/sidebar/SideBar";
 import axios from "axios";
+import CreateProduct from "./modalContent/CreateProduct";
 
 function Dashboard() {
   useEffect(() => {
@@ -10,6 +11,7 @@ function Dashboard() {
   return (
     <>
       <SideBar />
+      <CreateProduct />
     </>
   );
 }
