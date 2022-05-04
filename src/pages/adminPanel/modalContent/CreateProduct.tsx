@@ -1,41 +1,56 @@
-import {
-  Button,
-  Cascader,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Select,
-  TreeSelect,
-} from "antd";
-import TextArea from "antd/lib/input/TextArea";
-import React, { useState } from "react";
-import ImageUploader from "../../../components/ImageUploader";
-import Modal from "../../../components/modal/Modal";
+import React, { useState } from 'react'
+import { Form, Input, InputNumber, Modal, Select } from 'antd'
+import TextArea from 'antd/lib/input/TextArea'
 
-function CreateProduct() {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+function CreateProduct(props: any) {
+  const { isModalVisible, onShowModal, onCancle } = props;
+  const [file, setFile] = useState('')
 
-  function showModal(flag: boolean) {
-    setIsModalVisible(!flag);
+  const reader = new FileReader();
+  const img :any= document.createElement('img');
+
+  function uploadImage(event:any){
+    const imageGrid = document.getElementById('image-grid');
+
+    const files = event.target.files;
+    const file = files[0];
+
+    reader.readAsDataURL(file);
+console.log(reader)
+    reader.addEventListener('load', (event) => {
+      // Here we are creating an image tag and adding
+      // an image to it.
+      if(imageGrid)
+     {
+      console.log("running") 
+      imageGrid.appendChild(img);
+      img.src = event?.target?.result;
+      img.alt = file?.name;
+      img.style.width="100px";
+      img.style.height="100px";
+      }
+    });
   }
-
   function content() {
     return (
       <>
+     
         <Form
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 14 }}
-          layout="horizontal"
+        // labelCol={{ span: 4 }}
+        // wrapperCol={{ span: 14 }}
+        // layout="horizontal"
         >
-          <Form.Item label="عنوان کتاب">
-            <Input />
+          <Form.Item style={{ width: '100%', display: 'flex' }}>
+            <Form.Item label="عنوان کتاب">
+              <Input style={{ width: '40%' }} />
+            </Form.Item>
+            <Form.Item label="نام نویسنده">
+              <Input style={{ width: '40%' }} />
+            </Form.Item>
           </Form.Item>
-          <Form.Item label="نام نویسنده">
-            <Input />
-          </Form.Item>
+
           <Form.Item label="سال انتشار ">
-            <Input />
+            <Input style={{ width: '40%' }} />
           </Form.Item>
           <Form.Item label="ژانر">
             <Select>
@@ -44,8 +59,11 @@ function CreateProduct() {
           </Form.Item>
 
           <Form.Item label="کاور محصول">
-            <ImageUploader />
+            <input type="file" onChange={ uploadImage} accept="image/png, image/jpeg" />
+
           </Form.Item>
+          <div id="image-grid"></div>
+
 
           <Form.Item label="موجودی">
             <InputNumber />
@@ -56,24 +74,25 @@ function CreateProduct() {
               maxLength={100}
               style={{ height: 120 }}
               onChange={(e) => {
-                console.log("Change:", e.target.value);
+                console.log('Change:', e.target.value)
               }}
             />
-            ,
           </Form.Item>
         </Form>
       </>
-    );
+    )
   }
 
   return (
     <Modal
       title="افزودن محصول"
-      content={content()}
-      isModalVisible={true}
-      showModal={showModal}
-    />
-  );
+      visible={isModalVisible}
+      onOk={onShowModal}
+      onCancel={onCancle}
+    >
+      {content()}
+    </Modal>
+  )
 }
 
-export default CreateProduct;
+export default CreateProduct
