@@ -10,10 +10,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/contact-us" element={<ContactUs />} />
+     <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/login-user" element={<Login />} />
         <Route path="/admin-panel" element={<Dashboard/>}/>
-        {/*   <Route path="ashaar/page2" element={<Ashaar2 />} /> */}
+     
       </Routes>
     </BrowserRouter>
   );
