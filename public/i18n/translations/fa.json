@@ -1,9 +1,10 @@
 {
-"home":{
-"home":"خانه"
-},
+  "home": {
+    "home": "خانه"
+  },
 
- "adminPanel":{
- }
-
+  "adminPanel": {
+    "productManagement": "مدیریت محصولات",
+    "themeIsRandomMessage":"تم این صفحه به صورت رندوم با رفرش انتخاب میشود"
+  }
 }

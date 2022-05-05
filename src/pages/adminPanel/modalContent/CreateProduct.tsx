@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Input, InputNumber, Modal, Select } from "antd";
-// eslint-disable-next-line no-redeclare
-// import TextArea from "antd/lib/input/TextArea";
 
 const CreateProduct = (props: any) => {
   const { isModalVisible, onShowModal, onCancle } = props;
-  const [file, setFile] = useState("");
   const { TextArea } = Input;
 
   const reader = new FileReader();
   const img: any = document.createElement("img");
 
-  function uploadImage(event: any) {
+  function handleUploadImage(event: any) {
     const imageGrid = document.getElementById("image-grid");
 
     const { files } = event.target;
     const file = files[0];
 
     reader.readAsDataURL(file);
-    console.log(reader);
     reader.addEventListener("load", (event) => {
-      // Here we are creating an image tag and adding
-      // an image to it.
+      //  create image
       if (imageGrid) {
-        console.log("running");
         imageGrid.appendChild(img);
         img.src = event?.target?.result;
         img.alt = file?.name;
@@ -32,13 +26,10 @@ const CreateProduct = (props: any) => {
       }
     });
   }
+
   function content() {
     return (
-      <Form
-      // labelCol={{ span: 4 }}
-      // wrapperCol={{ span: 14 }}
-      // layout="horizontal"
-      >
+      <Form>
         <Form.Item style={{ width: "100%", display: "flex" }}>
           <Form.Item label="عنوان کتاب">
             <Input style={{ width: "40%" }} />
@@ -60,7 +51,7 @@ const CreateProduct = (props: any) => {
         <Form.Item label="کاور محصول">
           <input
             type="file"
-            onChange={uploadImage}
+            onChange={handleUploadImage}
             accept="image/png, image/jpeg"
           />
         </Form.Item>

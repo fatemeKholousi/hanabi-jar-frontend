@@ -1,0 +1,23 @@
+.admin-panel-dashboard-page {
+  &--snackbar{
+    background-color: antiquewhite ;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
+    color:black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+    &--head-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+        &__title{
+            font-weight: bold;
+        }
+        
+    }
+}
