@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
-function Login() {
+const Login = () => {
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
   };
@@ -38,9 +38,9 @@ function Login() {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
-          <a className="login-form-forgot" href="">
+          {/* <a className="login-form-forgot" href="">
             Forgot password
-          </a>
+          </a> */}
         </Form.Item>
 
         <Form.Item>
@@ -51,11 +51,11 @@ function Login() {
           >
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          {/* Or <a href="">register now!</a> */}
         </Form.Item>
       </Form>
     </div>
   );
-}
+};
 
 export default Login;

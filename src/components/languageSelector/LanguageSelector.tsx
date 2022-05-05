@@ -1,11 +1,11 @@
 import React from "react";
-import { Button,Switch } from "antd";
+import { Switch } from "antd";
 import i18n from "i18next";
 import { useDispatch, useSelector } from "../../utils/hooks";
 import { ChangeAppLanguageAction } from "../../utils/i18n/i18n.slice";
 
 const LanguageSelector = () => {
-  const { appLanguage } = useSelector((state:any) => state.appLanguageReducer);
+  const { appLanguage } = useSelector((state: any) => state.appLanguageReducer);
   const dispatch = useDispatch();
 
   const handleChange = (value: "fa" | "en") => {
@@ -27,18 +27,15 @@ const LanguageSelector = () => {
     //   {appLanguage === "en" ? "Persian" : "English"}
     // </Button>
 
-
-<Switch
-onClick={() => handleChange(appLanguage)}
-onChange={ (checked: boolean) =>{
-  console.log(`switch to ${checked}`);
-}}
-checkedChildren="Persian"
-unCheckedChildren="English"
-defaultChecked
-/>
-
-
+    <Switch
+      onClick={() => handleChange(appLanguage)}
+      onChange={(checked: boolean) => {
+        console.log(`switch to ${checked}`);
+      }}
+      checkedChildren="Persian"
+      unCheckedChildren="English"
+      defaultChecked
+    />
   );
 };
 
