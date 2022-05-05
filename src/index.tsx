@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import 'antd/dist/antd.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
@@ -12,6 +10,8 @@ import enUS from "antd/lib/locale/en_US";
 import { compose } from "redux";
 // import { Offline, Online, PollingConfig } from "react-detect-offline";
 import { ConfigProviderProps } from "antd/lib/config-provider";
+import reportWebVitals from "./reportWebVitals";
+import App from "./App";
 import { useSelector } from "./utils/hooks";
 import i18n from "./utils/i18n/i18n";
 import store from "./utils/store";
@@ -36,32 +36,28 @@ const englishAppConfig: ConfigProviderProps = {
   locale: enUS,
 };
 
-
-
 const IndexWrapper = () => {
   const { appLanguage } = useSelector((state) => state.appLanguageReducer);
 
   const languageAppConfig =
     appLanguage === "fa" ? persianAppConfig : englishAppConfig;
 
- 
-
   return (
     <I18nextProvider i18n={i18n}>
       <ConfigProvider {...languageAppConfig}>
         <Provider store={store}>
           {/* <Online polling={polling}> */}
-            <div
-              style={{
-                fontFamily:
-                  appLanguage === "en"
-                    ? "Poppin, Gilroy, YekanBakhFanum, sans-serif"
-                    : "YekanBakhFanum, Poppin, Gilroy, sans-serif",
-                fontSize: appLanguage === "en" ? 8 : 8,
-              }}
-            >
-              <App />
-            </div>
+          <div
+            style={{
+              fontFamily:
+                appLanguage === "en"
+                  ? "Poppin, Gilroy, YekanBakhFanum, sans-serif"
+                  : "YekanBakhFanum, Poppin, Gilroy, sans-serif",
+              fontSize: appLanguage === "en" ? 8 : 8,
+            }}
+          >
+            <App />
+          </div>
           {/* </Online> */}
           {/* <Offline polling={polling}>no internet</Offline> */}
         </Provider>
@@ -76,7 +72,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

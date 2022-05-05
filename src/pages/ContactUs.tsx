@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, InputNumber, Button } from "antd";
+import { Form, Input, Button } from "antd";
 
 const layout = {
   labelCol: { span: 8 },
@@ -19,7 +19,7 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-function ContactUs() {
+const ContactUs = () => {
   const onFinish = (values: any) => {
     console.log(values);
   };
@@ -55,6 +55,6 @@ function ContactUs() {
       </Form.Item>
     </Form>
   );
-}
+};
 
 export default ContactUs;
