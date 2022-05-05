@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./App.style.scss";
 import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
 import { I18nextProvider } from "react-i18next";

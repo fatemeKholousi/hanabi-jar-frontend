@@ -1,10 +1,9 @@
-{"home":{
-  "home":"Home"
-
-},
-  "adminPanel":{
-    
+{
+  "home": {
+    "home": "Home"
+  },
+  "adminPanel": {
+    "productManagement": "Product Management",
+    "themeIsRandomMessage":"This page Theme choosen randomly by you'r refresh"
   }
- 
- }
- 
+}
