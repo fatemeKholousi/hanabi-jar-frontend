@@ -4,16 +4,15 @@ import React, {
   forwardRef,
   useState,
 } from "react";
-import { Button, Form, Input, InputNumber, Modal, Select } from "antd";
-import axios from "axios";
+import { Form, Input, InputNumber, Modal } from "antd";
+import { postNewProduct } from "../../../httpRequests/adminPanelService.api";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
-  const { onUploadImage } = props;
   const { TextArea } = Input;
   const localRefInput = useRef<any>();
   const [coverImage, setImageCover] = useState<any>();
   const [bookName, setbookName] = useState("");
-  const [stock, setStock] = useState(0);
+  const [stock, setStock] = useState<any>();
   const [genre, setGenre] = useState("");
   const [author, setAuthor] = useState("");
   const [publishedYear, setPublishedYear] = useState("");
@@ -51,45 +50,29 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
       },
     };
   });
-  console.log();
 
-  function sendRequest() {
-    const headers = {
-      //   "Content-Type": "multipart/form-data",
-      contentType: "application/json",
-      charset: "utf-8",
-      Accept: "*/*",
-    };
-    const data = {
-      name: bookName,
-      genre,
-      author,
-      summary,
-      coverImage,
-      stock,
-      publishedYear,
-    };
-    axios
-      .post("http://localhost:5555/api/products", data, { headers })
-      .then(() => console.log("yeeeeeeees"))
-      .catch(() => "noooooooo");
-    console.log(coverImage);
+  function sendRequest(event: any) {
+    event?.preventDefault();
+    const formData = new FormData();
+    formData.append("name", bookName);
+    formData.append("genre", genre);
+    formData.append("author", author);
+    formData.append("summary", summary);
+    formData.append("coverImage", coverImage);
+    formData.append("stock", stock);
+    formData.append("publishedYear", publishedYear);
 
-    // Update the formData object
-
-    // Details of the uploaded file
-
-    // Request made to the backend api
-    // Send formData object
+    postNewProduct(formData);
   }
 
   return (
-    <Form action="/api/products" method="POST" encType="multipart/form-data">
+    <form encType="multipart/form-data">
       <Form.Item label="نام کتاب">
         <Input
           style={{ width: "40%" }}
           value={bookName}
           onChange={(event) => setbookName(event.target.value)}
+          name="name"
         />
       </Form.Item>
 
@@ -99,35 +82,36 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
           value={author}
           onChange={(event) => setAuthor(event.target.value)}
           ref={localRefInput}
+          name="author"
         />
       </Form.Item>
 
       <Form.Item label="سال انتشار ">
         <Input
+          name="publishedYear"
           style={{ width: "40%" }}
           value={publishedYear}
           onChange={(event) => setPublishedYear(event.target.value)}
         />
       </Form.Item>
       <Form.Item label="ژانر">
-        <Select onChange={(selectedItem) => setGenre(selectedItem)}>
-          <Select.Option value="romance">romance</Select.Option>
-          <Select.Option value="drama">drama</Select.Option>
-          <Select.Option value="horror">horror</Select.Option>
-          <Select.Option value="thriller">thriller</Select.Option>
-        </Select>
+        <select name="genre" onChange={(e) => setGenre(e.target.value)}>
+          <option value="romance">romance</option>
+          <option value="drama">drama</option>
+          <option value="horror">horror</option>
+          <option value="thriller">thriller</option>
+        </select>
       </Form.Item>
 
       <Form.Item label="کاور محصول">
         <input
           onChange={(e: any) => {
+            handleUploadImage(e);
             const { files } = e.target;
-            // files[0].path = "shhhhhhhhhhhhhhhhhhhhhhhhhh";
             setImageCover(files[0]);
           }}
-          name="file"
+          name="coverImage"
           type="file"
-          className="form-control"
           required
         />
       </Form.Item>
@@ -135,12 +119,14 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
 
       <Form.Item label="موجودی">
         <InputNumber
+          name="stock"
           value={stock}
           onChange={(stockNumber) => setStock(stockNumber)}
         />
       </Form.Item>
       <Form.Item label="چکیده داستان">
         <TextArea
+          name="summary"
           showCount
           maxLength={100}
           style={{ height: 120 }}
@@ -149,8 +135,11 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
           }}
         />
       </Form.Item>
-      <Button onClick={() => sendRequest()}>save</Button>
-    </Form>
+      <button type="submit" onClick={(e) => sendRequest(e)}>
+        save
+      </button>
+      {/* <Button onClick={() => sendRequest() }>save</Button> */}
+    </form>
   );
 });
 

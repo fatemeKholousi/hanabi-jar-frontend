@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import Dashboard from "./pages/adminPanel/Dashboard";
+import NotFound from "./pages/notFound";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/login-user" element={<Login />} />
         <Route path="/admin-panel" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
