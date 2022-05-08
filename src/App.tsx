@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import Dashboard from "./pages/adminPanel/Dashboard";
+import ContactUs from "./pages/ContactUs";
+
 import NotFound from "./pages/notFound";
 
 const App = () => {
