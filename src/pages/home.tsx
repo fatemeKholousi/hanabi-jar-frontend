@@ -1,17 +1,11 @@
 import React from "react";
 import "./home.style.scss";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Input, Divider } from "antd";
-import { useNavigate } from "react-router";
+import { GiFrostfire } from "react-icons/gi";
 
+import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "../components/languageSelector/LanguageSelector";
 import { useSelector } from "../utils/hooks";
-import Logo from "../assets/images/logo.png";
-import FirstAuthor from "../assets/images/author-card-jean.jpg";
-import SecondtAuthor from "../assets/images/author-card-lucy.jpg";
-import ThirdtAuthor from "../assets/images/author-card-mark.jpg";
-import FourthAuthor from "../assets/images/author-card-robert.jpg";
+import Header from "../components/headers/Header";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,50 +14,24 @@ const Home = () => {
 
   return (
     <div className="home--container">
-      <header>
-        <img
-          className="header-logo"
-          src={Logo}
-          alt="hanabijar logo"
-          width="400"
-        />
-        <ul className="header-list">
-          <li>Home</li>
-          <li>َAbout Am I</li>
-          <li>Shop</li>
-          <li>Blog</li>
+      <Header />
 
-          <button onClick={() => navigate("/admin-panel")}>
-            Go to Admin Panel
-          </button>
+      {/* <LanguageSelector /> */}
+      <section id="hanabi-jar-story">
+        <GiFrostfire size={100} color="#3f87db" />
+        <h1>Hanabi Jar Story</h1>
+        <p>
+          روزی بود روزگاری، دختری بود که هیچ دوستی نداشت و هر روز شیشه های
+          مربایی که مادرش داشت را میگرفت و درونشان را با وسایلی که که برای دوست
+          بند انگشتی خیالیش داشت پر میکرد، یکی از شیشه ها پر بود از رنگین کمان،
+          دیگری پر بود از رایحه گل هایی که در اولین روز بهار شکوفه میدهند، اما
+          شیشه مربایی که دختر قصه ما دوست داشت پر بود از آتش های ریزی که
+          میرقصیدند.
+        </p>
+      </section>
 
-          <li role="presentation" onClick={() => navigate("/contact-us")}>
-            Contact us
-          </li>
-        </ul>
-
-        <LanguageSelector />
-
-        <Input.Search
-          placeholder="input search text"
-          allowClear
-          // onSearch={onSearch}
-          style={{ width: 200 }}
-        />
-
-        <button type="submit" className="header-btn">
-          Register
-        </button>
-
-        <button className="header-btn" onClick={() => navigate("/login-user")}>
-          Login
-        </button>
-
-        <AiOutlineShoppingCart size={40} />
-      </header>
-
-      <main>
-        <div className="main-text">
+      <main> card</main>
+      {/* <div className="main-text">
           <h1 className="main-title">{t("home.home")}</h1>
 
           <p className="main-dec">سششسشسشسشسشسشس</p>
@@ -71,8 +39,8 @@ const Home = () => {
           <button className="main-button-1">Free Registration</button>
           <button className="main-button-2">How it works</button>
         </div>
-      </main>
-      <div className="author-cards--container">
+      </main> */}
+      {/* <div className="author-cards--container">
         <Divider style={{ background: "white" }}>Authors</Divider>
         <div className="author-cards">
           <img
@@ -104,7 +72,7 @@ const Home = () => {
             className="author__card"
           />
         </div>
-      </div>
+      </div> */}
       <footer />
     </div>
   );

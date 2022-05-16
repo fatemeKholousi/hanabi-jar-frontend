@@ -2,19 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./App.style.scss";
 import "antd/dist/antd.css";
+
+import "./assets/layout/index.scss";
 import { ConfigProvider } from "antd";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import fa_IR from "antd/lib/locale/fa_IR";
 import enUS from "antd/lib/locale/en_US";
 import { compose } from "redux";
-// import { Offline, Online, PollingConfig } from "react-detect-offline";
 import { ConfigProviderProps } from "antd/lib/config-provider";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { useSelector } from "./utils/hooks";
 import i18n from "./utils/i18n/i18n";
 import store from "./utils/store";
+
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import ValidateMessages from "./utils/ValidateMessages";
 
