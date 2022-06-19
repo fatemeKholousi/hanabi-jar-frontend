@@ -101,12 +101,14 @@ const Dashboard = () => {
                   <td>{row.author}</td>
                   <td>{row.genre}</td>
                   <td>
-                    <img
-                      src={`${url}${row.coverImage}`}
-                      alt="cover"
-                      width={120}
-                      height={120}
-                    />
+                    {url && (
+                      <img
+                        src={`${url}${row.coverImage}`}
+                        alt="cover"
+                        width={120}
+                        height={120}
+                      />
+                    )}
                   </td>
                 </tr>
               )

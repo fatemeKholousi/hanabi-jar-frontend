@@ -11,7 +11,7 @@ const HumbergerMenu = () => {
       {!open ? (
         <ImMenu onClick={() => setOpen(true)} />
       ) : (
-        <div>
+        <div className="humberger-menu--open">
           <ul>
             <AiFillCloseCircle onClick={() => setOpen(false)} />
             <li>فروشگاه</li>
