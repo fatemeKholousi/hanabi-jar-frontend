@@ -8,6 +8,8 @@ import withRandomTheme from "../../HOC/withRandomTheme";
 import "./adminPanel.style.scss";
 
 const Dashboard = () => {
+  const url = process.env.REACT_APP_URL;
+
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [data, setData] = useState<any>("");
   const [image, setImage] = useState("");
@@ -24,8 +26,10 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    setImage(`http://localhost:5555/${data[16]?.coverImage}`);
+    setImage(`${url}${data[16]?.coverImage}`);
   }, [data]);
+
+  console.log(data);
 
   function handleOk() {}
 
@@ -66,10 +70,49 @@ const Dashboard = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td headers="author-name-abbrev">lucy mude mongomery</td>
-          </tr>
+          {data &&
+            data.map(
+              (row: {
+                name:
+                  | boolean
+                  | React.ReactChild
+                  | React.ReactFragment
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+                author:
+                  | boolean
+                  | React.ReactChild
+                  | React.ReactFragment
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+                genre:
+                  | boolean
+                  | React.ReactChild
+                  | React.ReactFragment
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+                coverImage: string | undefined;
+              }) => (
+                <tr>
+                  <td>{row.name}</td>
+                  <td>{row.author}</td>
+                  <td>{row.genre}</td>
+                  <td>
+                    <img
+                      src={`${url}${row.coverImage}`}
+                      alt="cover"
+                      width={120}
+                      height={120}
+                    />
+                  </td>
+                </tr>
+              )
+            )}
         </tbody>
+
         <tfoot>پایان</tfoot>
       </table>
 
