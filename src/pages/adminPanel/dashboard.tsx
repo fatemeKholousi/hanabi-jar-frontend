@@ -3,9 +3,11 @@ import axios from "axios";
 import { BiPlusMedical } from "react-icons/bi";
 import { Button } from "antd";
 import { t } from "i18next";
+import { FaTrash } from "react-icons/fa";
 import ModalCreateProduct from "./modalContent/CreateProduct";
 import withRandomTheme from "../../HOC/withRandomTheme";
 import "./adminPanel.style.scss";
+import { deleteProductService } from "../../httpRequests/adminPanelService.api";
 
 const Dashboard = () => {
   const url = process.env.REACT_APP_URL;
@@ -94,7 +96,8 @@ const Dashboard = () => {
                   | React.ReactPortal
                   | null
                   | undefined;
-                coverImage: string | undefined;
+                coverImage: any;
+                _id: any;
               }) => (
                 <tr>
                   <td>{row.name}</td>
@@ -109,6 +112,12 @@ const Dashboard = () => {
                         height={120}
                       />
                     )}
+                    <FaTrash
+                      onClick={() => {
+                        deleteProductService(row._id);
+                        console.log(`http://localhost:5555/${row._id}`);
+                      }}
+                    />
                   </td>
                 </tr>
               )

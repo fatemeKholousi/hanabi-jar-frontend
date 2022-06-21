@@ -5,7 +5,7 @@ import React, {
   useState,
 } from "react";
 import { Form, Input, InputNumber, Modal } from "antd";
-import { postNewProduct } from "../../../httpRequests/adminPanelService.api";
+import { postNewProductService } from "../../../httpRequests/adminPanelService.api";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const { TextArea } = Input;
@@ -62,7 +62,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     formData.append("stock", stock);
     formData.append("publishedYear", publishedYear);
 
-    postNewProduct(formData);
+    postNewProductService(formData);
   }
 
   return (
