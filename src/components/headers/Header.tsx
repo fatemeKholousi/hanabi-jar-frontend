@@ -2,6 +2,7 @@ import { Button } from "antd";
 import React from "react";
 import { useNavigate } from "react-router";
 import HeaderImage from "../../assets/images/howel.jpg";
+import HumbergerMenu from "../humbergerMenu/HumbergerMenu";
 import "./header.style.scss";
 
 const Header = () => {
@@ -9,6 +10,8 @@ const Header = () => {
 
   return (
     <>
+      <HumbergerMenu />
+
       <header className="header-list">
         <h1 className="header-list--title">Hanabi Jar</h1>
         <div className="header-list--items-list">
