@@ -3,13 +3,16 @@ import React, {
   useImperativeHandle,
   forwardRef,
   useState,
+  useEffect,
 } from "react";
 import { Form, Input, InputNumber, Modal } from "antd";
 import { postNewProduct } from "../../../httpRequests/adminPanelService.api";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const { TextArea } = Input;
+  const { fieldForEdit } = props;
   const localRefInput = useRef<any>();
+
   const [coverImage, setImageCover] = useState<any>();
   const [bookName, setbookName] = useState("");
   const [stock, setStock] = useState<any>();
@@ -18,6 +21,11 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const [publishedYear, setPublishedYear] = useState("");
   const [summary, setSummary] = useState("");
 
+  const [editMode, setEditMode] = useState(false);
+  // const { editProduct } = useSelector((state) => state.productReducer);
+  const [data, setData] = useState([]);
+  // const dispatch = useDispatch();
+  // const [addProductFlag, setAddProductFlag] = useState<any>(addedProdutId);
   const reader = new FileReader();
   const img: any = document.createElement("img");
 
@@ -64,6 +72,25 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
 
     postNewProduct(formData);
   }
+
+  useEffect(() => {
+    if (fieldForEdit) setDataFields(fieldForEdit);
+  }, [fieldForEdit]);
+
+  function setDataFields(data: any) {
+    console.log(data);
+    setImageCover(data.coverImage);
+    setbookName(data.name);
+    setStock(data.stock);
+    setGenre(data.genre);
+    setAuthor(data.author);
+    setPublishedYear(data.publishedYear);
+    setSummary(data.summary);
+  }
+
+  useEffect(() => {
+    if (data) setDataFields(data);
+  }, [data]);
 
   return (
     <form encType="multipart/form-data">
@@ -126,6 +153,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
       </Form.Item>
       <Form.Item label="چکیده داستان">
         <TextArea
+          value={summary}
           name="summary"
           showCount
           maxLength={100}

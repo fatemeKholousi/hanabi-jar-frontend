@@ -26,7 +26,7 @@ const Header = () => {
         </div>
         <div className="header-list--button-row">
           <Button
-            onClick={() => navigate("/admin-panel")}
+            onClick={() => navigate("/login")}
             type="primary"
             className="header-list--button-row__signin"
           >

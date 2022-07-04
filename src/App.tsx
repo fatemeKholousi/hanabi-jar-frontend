@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Dashboard from "./pages/adminPanel/Dashboard";
-import ContactUs from "./pages/ContactUs";
-
-import NotFound from "./pages/notFound";
+import Home from "./pages/HomePage";
+import Login from "./pages/LoginPage";
+import Dashboard from "./pages/adminPanel/DashboardPage";
+import ContactUs from "./pages/ContactUsPage";
+import NotFound from "./pages/NotFoundPage";
+import Register from "./pages/RegisterPage";
 
 const App = () => {
   return (
@@ -13,7 +13,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/login-user" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<Register />} />
+
         <Route path="/admin-panel" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
