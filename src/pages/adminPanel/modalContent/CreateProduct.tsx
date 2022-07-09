@@ -3,11 +3,15 @@ import React, {
   useImperativeHandle,
   forwardRef,
   useState,
-  useEffect,
 } from "react";
 import { Form, Input, InputNumber, Modal } from "antd";
+import axios from "axios";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
+  const { TextArea } = Input;
+  const localRefInput = useRef<any>();
+  const token = localStorage.getItem("token");
+
   const [coverImage, setImageCover] = useState<any>();
   const [bookName, setbookName] = useState("");
   const [stock, setStock] = useState<any>();
@@ -16,35 +20,8 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const [publishedYear, setPublishedYear] = useState("");
   const [summary, setSummary] = useState("");
 
-  const [editMode, setEditMode] = useState(false);
-  const [data, setData] = useState([]);
-
-  const token = localStorage.getItem("token");
-  const { TextArea } = Input;
-  const { fieldForEdit } = props;
-  const localRefInput = useRef<any>();
-
   const reader = new FileReader();
   const img: any = document.createElement("img");
-
-  useEffect(() => {
-    if (data) setDataFields(data);
-  }, [data]);
-
-  useEffect(() => {
-    if (fieldForEdit) setDataFields(fieldForEdit);
-  }, [fieldForEdit]);
-
-  useImperativeHandle(forwardedRef, () => {
-    return {
-      focusAndBlur: () => {
-        localRefInput.current.focus();
-        setTimeout(() => {
-          localRefInput.current.blur();
-        }, 10000);
-      },
-    };
-  });
 
   function handleUploadImage(event: any) {
     const imageGrid = document.getElementById("image-grid");
@@ -65,7 +42,19 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     });
   }
 
+  useImperativeHandle(forwardedRef, () => {
+    return {
+      focusAndBlur: () => {
+        localRefInput.current.focus();
+        setTimeout(() => {
+          localRefInput.current.blur();
+        }, 10000);
+      },
+    };
+  });
+
   function sendRequest(event: any) {
+    event?.preventDefault();
     const formData = new FormData();
     formData.append("name", bookName);
     formData.append("genre", genre);
@@ -74,31 +63,30 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     formData.append("coverImage", coverImage);
     formData.append("stock", stock);
     formData.append("publishedYear", publishedYear);
-    console.log(formData.append("salam", "salama"));
-    event.preventDefault();
-
-    // if (token) {
-    //   const config: any = {
-    //     headers: {
-    //       "x-auth-token": localStorage.getItem("token"),
-    //     },
-    //   };
-    //   axios
-    //     .post(`/api/products`, formData , config)
-    //     .then(() => {
-    //       console.log("you sent it all");
-    //     })
-    //     .catch((error) => console.log(error));
-    // }
-  }
-  function setDataFields(data: any) {
-    setImageCover(data.coverImage);
-    setbookName(data.name);
-    setStock(data.stock);
-    setGenre(data.genre);
-    setAuthor(data.author);
-    setPublishedYear(data.publishedYear);
-    setSummary(data.summary);
+    const data = {
+      name: bookName,
+      genre,
+      author,
+      summary,
+      coverImage,
+      stock,
+      publishedYear,
+    };
+    console.log(data);
+    if (token) {
+      const config: any = {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      };
+      axios
+        .post(`/api/products`, formData, config)
+        .then(() => {
+          console.log("you sent it all");
+        })
+        .catch((error) => console.log(error));
+    }
+    // postNewProduct(formData);
   }
 
   return (
@@ -162,7 +150,6 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
       </Form.Item>
       <Form.Item label="چکیده داستان">
         <TextArea
-          value={summary}
           name="summary"
           showCount
           maxLength={100}
