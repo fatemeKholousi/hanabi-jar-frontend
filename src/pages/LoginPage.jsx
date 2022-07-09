@@ -1,61 +1,70 @@
 import axios from "axios";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { Navigate } from "react-router";
+import AuthContext from "../context/auth/authContext";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [dto, setDto] = useState({});
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [redirectNow, setRedirectNow] = useState(false);
 
-  const errorRef = useRef<any>();
+  const userRef = useRef("");
+  const errorRef = useRef();
+  const authContext = useContext(AuthContext);
+  const { setCurrentName } = authContext;
 
-  const user = { userName, password, name };
+  const user = { userName, password };
   const URL = process.env.REACT_APP_URL;
 
-  const registerService = (user: any) => {
+  useEffect(() => {
+    if (userRef.current) userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrorMessage("");
+  }, [password, userName]);
+
+  const loginService = (user) => {
     axios
-      .post(`${URL}/api/users`, {
+      .post(`${URL}/api/login`, {
         email: user.userName,
         password: user.password,
-        name: user.name,
       })
       .then(({ data }) => {
-        window.localStorage.setItem("token", data?.token);
+        window.localStorage.setItem("token", data.token);
+        setCurrentName(data.name);
+
         setSuccess(true);
         setTimeout(() => setRedirectNow(true), 3000);
       });
   };
 
-  const handleSubmit: any = (event: any) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+
     setPassword("");
     setUserName("");
-    setName("");
-    registerService(user);
+
+    loginService(user);
   };
 
   return (
     <section>
       {success ? (
         <>
-          <h1>ثبت نام شدید </h1>
+          <h1>وارد شدید</h1>
 
-          {redirectNow && <Navigate to="/user-panel" />}
+          {redirectNow && <Navigate to="/admin-panel" />}
         </>
       ) : (
         <form action="" onSubmit={handleSubmit}>
-          <h1>ثبت نام</h1>
-
-          <label htmlFor="">name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-
+          <p ref={errorRef} aria-live="assertive">
+            {errorMessage}
+          </p>
+          <h1>ورود</h1>
           <label htmlFor="">email</label>
           <input
             type="email"
@@ -72,7 +81,7 @@ const Login = () => {
           />
 
           <button type="submit" disabled={false}>
-            ثبت نام
+            ورود
           </button>
           <p> اکانت ندارید؟</p>
           {/* <a href="">یکی بسازید</a> */}

@@ -5,7 +5,9 @@ const URL = "http://localhost:5555";
 export const postNewProductService = async (data: any, then?: any) => {
   await axios
     .post(`${URL}/api/products`, data)
-    .then(() => {})
+    .then(() => {
+      console.log("you sent it all");
+    })
     .catch((error) => console.log(error));
 };
 

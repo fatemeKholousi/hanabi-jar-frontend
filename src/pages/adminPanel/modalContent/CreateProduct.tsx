@@ -6,13 +6,8 @@ import React, {
   useEffect,
 } from "react";
 import { Form, Input, InputNumber, Modal } from "antd";
-import { postNewProductService } from "../../../httpRequests/adminPanelService.api";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
-  const { TextArea } = Input;
-  const { fieldForEdit } = props;
-  const localRefInput = useRef<any>();
-
   const [coverImage, setImageCover] = useState<any>();
   const [bookName, setbookName] = useState("");
   const [stock, setStock] = useState<any>();
@@ -22,12 +17,34 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const [summary, setSummary] = useState("");
 
   const [editMode, setEditMode] = useState(false);
-  // const { editProduct } = useSelector((state) => state.productReducer);
   const [data, setData] = useState([]);
-  // const dispatch = useDispatch();
-  // const [addProductFlag, setAddProductFlag] = useState<any>(addedProdutId);
+
+  const token = localStorage.getItem("token");
+  const { TextArea } = Input;
+  const { fieldForEdit } = props;
+  const localRefInput = useRef<any>();
+
   const reader = new FileReader();
   const img: any = document.createElement("img");
+
+  useEffect(() => {
+    if (data) setDataFields(data);
+  }, [data]);
+
+  useEffect(() => {
+    if (fieldForEdit) setDataFields(fieldForEdit);
+  }, [fieldForEdit]);
+
+  useImperativeHandle(forwardedRef, () => {
+    return {
+      focusAndBlur: () => {
+        localRefInput.current.focus();
+        setTimeout(() => {
+          localRefInput.current.blur();
+        }, 10000);
+      },
+    };
+  });
 
   function handleUploadImage(event: any) {
     const imageGrid = document.getElementById("image-grid");
@@ -48,19 +65,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     });
   }
 
-  useImperativeHandle(forwardedRef, () => {
-    return {
-      focusAndBlur: () => {
-        localRefInput.current.focus();
-        setTimeout(() => {
-          localRefInput.current.blur();
-        }, 10000);
-      },
-    };
-  });
-
   function sendRequest(event: any) {
-    event?.preventDefault();
     const formData = new FormData();
     formData.append("name", bookName);
     formData.append("genre", genre);
@@ -69,16 +74,24 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     formData.append("coverImage", coverImage);
     formData.append("stock", stock);
     formData.append("publishedYear", publishedYear);
+    console.log(formData.append("salam", "salama"));
+    event.preventDefault();
 
-    postNewProductService(formData);
+    // if (token) {
+    //   const config: any = {
+    //     headers: {
+    //       "x-auth-token": localStorage.getItem("token"),
+    //     },
+    //   };
+    //   axios
+    //     .post(`/api/products`, formData , config)
+    //     .then(() => {
+    //       console.log("you sent it all");
+    //     })
+    //     .catch((error) => console.log(error));
+    // }
   }
-
-  useEffect(() => {
-    if (fieldForEdit) setDataFields(fieldForEdit);
-  }, [fieldForEdit]);
-
   function setDataFields(data: any) {
-    console.log(data);
     setImageCover(data.coverImage);
     setbookName(data.name);
     setStock(data.stock);
@@ -87,10 +100,6 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     setPublishedYear(data.publishedYear);
     setSummary(data.summary);
   }
-
-  useEffect(() => {
-    if (data) setDataFields(data);
-  }, [data]);
 
   return (
     <form encType="multipart/form-data">

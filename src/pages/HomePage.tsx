@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <div className="home--container">
       <Header />
-
       {/* <LanguageSelector /> */}
       <section id="hanabi-jar-story">
         <GiFrostfire size={100} color="#3f87db" />

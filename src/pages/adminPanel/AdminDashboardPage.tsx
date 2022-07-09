@@ -4,6 +4,7 @@ import { BiPlusMedical } from "react-icons/bi";
 import { Button } from "antd";
 import { t } from "i18next";
 import { VscTrash, VscEdit } from "react-icons/vsc";
+import { useNavigate } from "react-router";
 
 import ModalCreateProduct from "./modalContent/CreateProduct";
 import "./adminPanel.style.scss";
@@ -14,13 +15,13 @@ const Dashboard = () => {
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [data, setData] = useState<any>("");
   const [editProductId, setEditProductId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get("/api/genres")
       .then(({ data }) => console.log(data))
       .catch((error) => console.log(error));
-    axios.get("/api/products").then(({ data }) => setData(data));
   }, []);
 
   useEffect(() => {
@@ -34,18 +35,35 @@ const Dashboard = () => {
   //   if (editProductId) dispatch(editProductAction(editProductId));
   // }, [editProductId]);
 
-  const fetchProducts = () =>
-    axios.get("/api/products").then(({ data }) => setData(data));
-
   function handleCancel() {
     setIsModalVisible(false);
   }
 
   function handleShowModal() {
     setIsModalVisible((flag) => !flag);
-    fetchProducts();
   }
 
+  const fetchProducts = () =>
+    axios
+      .get("/api/products")
+      .then(({ data }) => setData(data))
+      .catch((error) => console.error(`Error is = ${error}`));
+
+  const fetchProduct = (id: string) => {
+    axios
+      .get(`/api/products/${id}`)
+      .then(({ data }) => {
+        setEditProductId(data);
+      })
+      .then(() => handleShowModal())
+      .catch((error) => console.error(`Error is = ${error}`));
+  };
+
+  function addProduct() {
+    const newProductInfo = {};
+    axios.post(`/api/products`).then(({ data }) => console.log(data));
+  }
+  function deleteProduct() {}
   return (
     <div className="admin-panel-dashboard-page">
       {isModalVisible && (
@@ -64,6 +82,7 @@ const Dashboard = () => {
           {t("adminPanel.productManagement")}
         </h1>
       </div>
+      <button onClick={() => navigate("/")}>بازگشت </button>
 
       <table>
         <caption>He-Man and Skeletor facts</caption>
@@ -101,17 +120,7 @@ const Dashboard = () => {
                     <VscEdit
                       size={25}
                       onClick={() => {
-                        axios
-                          .get(
-                            `http://localhost:5555/api/products/${product._id}`
-                          )
-                          .then(({ data }) => {
-                            setEditProductId(data);
-                            console.log(editProductId);
-                          })
-                          .then(() => handleShowModal());
-
-                        // console.log();
+                        fetchProduct(product._id);
                       }}
                     />
                   </div>

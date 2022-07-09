@@ -15,14 +15,9 @@ export const registerService = async (user: any, then?: any) => {
     .catch((error) => console.log(error));
 };
 
-export const loginService = async (user: any, then?: any) => {
-  await axios
-    .post(`${URL}/api/login`, {
-      email: user.userName,
-      password: user.password,
-    })
-    .then(() => {
-      console.log("200");
-    })
-    .catch((error) => console.log(error));
-};
+// export const loginService = (user: any) => {
+//   axios.post(`${URL}/api/login`, {
+//     email: user.userName,
+//     password: user.password,
+//   });
+// };
