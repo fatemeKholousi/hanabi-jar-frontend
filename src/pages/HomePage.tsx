@@ -4,6 +4,7 @@ import { GiFrostfire } from "react-icons/gi";
 
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import Card from "../components/card/Card";
 import { useSelector } from "../utils/hooks";
 import Header from "../components/headers/Header";
 
@@ -18,6 +19,7 @@ const Home = () => {
       {/* <LanguageSelector /> */}
       <section id="hanabi-jar-story">
         <GiFrostfire size={100} color="#3f87db" />
+
         <h1>Hanabi Jar Story</h1>
         <p>
           روزی بود روزگاری، دختری بود که هیچ دوستی نداشت و هر روز شیشه های
@@ -28,8 +30,11 @@ const Home = () => {
           میرقصیدند.
         </p>
       </section>
-
-      <main> card</main>
+      <main>
+        {" "}
+        card
+        <Card />
+      </main>
       {/* <div className="main-text">
           <h1 className="main-title">{t("home.home")}</h1>
 

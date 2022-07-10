@@ -2,6 +2,7 @@ import React, {
   useRef,
   useImperativeHandle,
   forwardRef,
+  useEffect,
   useState,
 } from "react";
 import { Form, Input, InputNumber, Modal } from "antd";
@@ -9,6 +10,7 @@ import axios from "axios";
 
 export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const { TextArea } = Input;
+  const { successFlag, onSuccessFlag, editProductId } = props;
   const localRefInput = useRef<any>();
   const token = localStorage.getItem("token");
 
@@ -20,16 +22,24 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
   const [publishedYear, setPublishedYear] = useState("");
   const [summary, setSummary] = useState("");
 
+  useEffect(() => {
+    if (editProductId) {
+      fetchProduct(editProductId);
+    }
+  }, [editProductId]);
+
   const reader = new FileReader();
   const img: any = document.createElement("img");
 
   function handleUploadImage(event: any) {
     const imageGrid = document.getElementById("image-grid");
-
     const { files } = event.target;
     const file = files[0];
     setImageCover(`uploads/${file.name}`);
+
     reader.readAsDataURL(file);
+
+    console.log(`file==============${file[0]}`);
     reader.addEventListener("load", (event) => {
       //  create image
       if (imageGrid) {
@@ -42,6 +52,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     });
   }
 
+  console.log(coverImage);
   useImperativeHandle(forwardedRef, () => {
     return {
       focusAndBlur: () => {
@@ -53,7 +64,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     };
   });
 
-  function sendRequest(event: any) {
+  const handleSendRequest = (event: any) => {
     event?.preventDefault();
     const formData = new FormData();
     formData.append("name", bookName);
@@ -63,16 +74,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
     formData.append("coverImage", coverImage);
     formData.append("stock", stock);
     formData.append("publishedYear", publishedYear);
-    const data = {
-      name: bookName,
-      genre,
-      author,
-      summary,
-      coverImage,
-      stock,
-      publishedYear,
-    };
-    console.log(data);
+
     if (token) {
       const config: any = {
         headers: {
@@ -82,12 +84,49 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
       axios
         .post(`/api/products`, formData, config)
         .then(() => {
-          console.log("you sent it all");
+          onSuccessFlag(true);
         })
         .catch((error) => console.log(error));
     }
     // postNewProduct(formData);
-  }
+  };
+
+  const handleShowImage = () => {
+    const imageGrid = document.getElementById("image-grid");
+
+    reader.addEventListener("load", (event) => {
+      if (imageGrid) {
+        imageGrid.appendChild(img);
+        img.src = coverImage;
+        img.alt = "cover";
+        img.style.width = "100px";
+        img.style.height = "100px";
+      }
+    });
+  };
+
+  const fetchProduct = (id: string) => {
+    axios
+      .get(`/api/products/${id}`)
+      .then(({ data }) => {
+        setbookName(data.name);
+        setAuthor(data.author);
+        setGenre(data.genre);
+        setSummary(data.summary);
+        setImageCover(`${data.coverImage}`);
+
+        setStock(data.stock);
+        setPublishedYear(data.publishedYear);
+
+        console.log(coverImage);
+        // setEditProductId(data);f
+      })
+      .then(() => {
+        handleShowImage();
+      })
+      .then(() => console.log("did it"))
+      .catch((error) => console.error(`Error is = ${error}`));
+  };
 
   return (
     <form encType="multipart/form-data">
@@ -129,6 +168,7 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
 
       <Form.Item label="کاور محصول">
         <input
+          // value={coverImage}
           onChange={(e: any) => {
             handleUploadImage(e);
             const { files } = e.target;
@@ -140,6 +180,15 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
         />
       </Form.Item>
       <div id="image-grid" />
+
+      {coverImage && (
+        <img
+          src={`http://localhost:5555/${coverImage}`}
+          alt=""
+          width={100}
+          height={100}
+        />
+      )}
 
       <Form.Item label="موجودی">
         <InputNumber
@@ -154,23 +203,30 @@ export const ContentCreateProduct = forwardRef((props: any, forwardedRef) => {
           showCount
           maxLength={100}
           style={{ height: 120 }}
+          value={summary}
           onChange={(event) => {
             setSummary(event.target.value);
           }}
         />
       </Form.Item>
-      <button type="submit" onClick={(e) => sendRequest(e)}>
+      <button type="submit" onClick={(e) => handleSendRequest(e)}>
         save
       </button>
-      {/* <Button onClick={() => sendRequest() }>save</Button> */}
     </form>
   );
 });
 
 const CreateProduct = (props: any) => {
-  const { isModalVisible, onShowModal, onCancle } = props;
+  const {
+    isModalVisible,
+    onShowModal,
+    onCancle,
+    successFlag,
+    onSuccessFlag,
+    editProductId,
+  } = props;
   const inputRef = useRef<any>();
-
+  console.log(editProductId);
   if (isModalVisible && inputRef) {
     inputRef?.current?.focusAndBlur();
   }
@@ -182,7 +238,12 @@ const CreateProduct = (props: any) => {
       onOk={onShowModal}
       onCancel={onCancle}
     >
-      <ContentCreateProduct ref={inputRef} />
+      <ContentCreateProduct
+        ref={inputRef}
+        successFlag={successFlag}
+        onSuccessFlag={onSuccessFlag}
+        editProductId={editProductId}
+      />
     </Modal>
   );
 };

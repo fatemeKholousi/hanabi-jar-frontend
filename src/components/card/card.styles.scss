@@ -1,0 +1,105 @@
+:root {
+  --clr-natural-900: hsl(207, 19%, 9%);
+  --clr-natural-100: hsl(0, 0%, 61%);
+  --clr-accent-400: hsl(142, 90%, 61%);
+}
+.card {
+  width: 200px;
+  font-family: sans-serif;
+  color: var(--clr-natural-100);
+  background-image: url("https://prmovi.xyz/wp-content/uploads/2022/05/cleaning-up.jpg");
+  background-size: cover;
+  padding: 10rem 0 0;
+  max-width: 35ch;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 500ms ease;
+}
+.card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0%/0),
+    hsl(255 50% 50% /0.5) 20%,
+    hsl(0 0% 0%/1)
+  );
+}
+
+.card:focus-within .card-content {
+  transition-duration: 1000ms;
+}
+.card-body {
+  color: rgb(255 255 255 /0.8);
+}
+.card-title {
+  position: relative;
+  width: max-content;
+}
+
+.card-title::after {
+  content: "";
+  left: calc(var(--padding) * -1);
+  bottom: -2px;
+  position: absolute;
+  height: 3px;
+  background-color: var(--clr-accent-400);
+  width: calc(100% + var(--padding));
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+
+.card--more-button {
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-natural-900);
+  background-color: var(--clr-accent-400);
+  padding: 0.5em 1.25em;
+}
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+  transform: scaleX(1);
+}
+.card--more-button:hover,
+.card--more-button:focus,
+.card--more-button:focus-within {
+  background-color: var(--clr-natural-100);
+  color: black;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: scale(1.05);
+}
+@media (hover) {
+  .card-content {
+    transform: translateY(65%);
+    transition: transform 500ms ease;
+    transition-delay: 500ms;
+  }
+
+  .card:hover .card-content,
+  .card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms;
+  }
+
+  .card:focus-within .card-content {
+    transition-duration: 0ms;
+  }
+
+  .card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: transform 500ms linear;
+  }
+  .card:hover .card-content > *:not(.card-title),
+  .card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 1000ms;
+  }
+  .card-title::after {
+    transform: scaleX(0);
+  }
+}

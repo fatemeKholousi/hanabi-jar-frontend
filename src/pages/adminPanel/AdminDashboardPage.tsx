@@ -15,6 +15,8 @@ const Dashboard = () => {
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [data, setData] = useState<any>("");
   const [editProductId, setEditProductId] = useState("");
+  const [isAddedSuccessfully, setIsUpdatedSuccessfully] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +29,12 @@ const Dashboard = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+  useEffect(() => {
+    if (isAddedSuccessfully) {
+      fetchProducts();
+      setIsUpdatedSuccessfully(false);
+    }
+  }, [isAddedSuccessfully]);
 
   const dispatch = useDispatch();
 
@@ -47,33 +55,36 @@ const Dashboard = () => {
     axios
       .get("/api/products")
       .then(({ data }) => setData(data))
+
       .catch((error) => console.error(`Error is = ${error}`));
 
-  const fetchProduct = (id: string) => {
+  function deleteProduct(id: string) {
+    const config: any = {
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    };
     axios
-      .get(`/api/products/${id}`)
-      .then(({ data }) => {
-        setEditProductId(data);
+      .delete(`/api/products/${id}`, config)
+      .then(() => {
+        setIsUpdatedSuccessfully(true);
+        alert("حذف شد");
       })
-      .then(() => handleShowModal())
-      .catch((error) => console.error(`Error is = ${error}`));
-  };
-
-  function addProduct() {
-    const newProductInfo = {};
-    axios.post(`/api/products`).then(({ data }) => console.log(data));
+      .catch((error) => console.log(error));
   }
-  function deleteProduct() {}
+
   return (
     <div className="admin-panel-dashboard-page">
-      {isModalVisible && (
-        <ModalCreateProduct
-          isModalVisible={isModalVisible}
-          onShowModal={handleShowModal}
-          onCancle={handleCancel}
-          fieldForEdit={editProductId.length !== 0 ? editProductId : ""}
-        />
-      )}
+      <ModalCreateProduct
+        isModalVisible={isModalVisible}
+        onShowModal={handleShowModal}
+        onCancle={handleCancel}
+        successFlag={isAddedSuccessfully}
+        onSuccessFlag={(newFlag: boolean) => setIsUpdatedSuccessfully(newFlag)}
+        fieldForEdit={editProductId.length !== 0 ? editProductId : ""}
+        mode="edit"
+        editProductId={editProductId}
+      />
       <div className="admin-panel-dashboard-page--head-row">
         <Button onClick={handleShowModal}>
           <BiPlusMedical />
@@ -98,42 +109,49 @@ const Dashboard = () => {
         </thead>
         <tbody>
           {data &&
-            data.map((product: any) => (
-              <tr key="product.title">
-                <td headers="author-name-abbrev">{product.name}</td>
-                <td headers="author-name-abbrev">{product.author}</td>
-                <td headers="author-name-abbrev">{product.genre}</td>
+            // to reverse the array while showing
+            data
+              .slice(0)
+              .reverse()
+              .map((product: any) => (
+                <tr key={product.title}>
+                  <td>{product.name}</td>
+                  <td>{product.author}</td>
+                  <td>{product.genre}</td>
 
-                <td headers="author-name-abbrev">
-                  <div
-                    style={{
-                      opacity: "50%",
-                      backgroundColor: "red",
-                      width: "200px",
-
-                      display: "flex",
-                      justifyContent: "space-between",
-                      padding: "0.5rem 1rem",
-                    }}
-                  >
-                    <VscTrash size={25} />
-                    <VscEdit
-                      size={25}
-                      onClick={() => {
-                        fetchProduct(product._id);
+                  <td>
+                    <div
+                      style={{
+                        opacity: "50%",
+                        backgroundColor: "red",
+                        width: "200px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "0.5rem 1rem",
                       }}
+                    >
+                      <VscTrash
+                        size={25}
+                        onClick={() => deleteProduct(product._id)}
+                      />
+
+                      <VscEdit
+                        size={25}
+                        onClick={() => {
+                          setEditProductId(product._id);
+                          handleShowModal();
+                        }}
+                      />
+                    </div>
+                    <img
+                      src={`http://localhost:5555/${product.coverImage}`}
+                      alt="cover"
+                      width={200}
+                      height={250}
                     />
-                  </div>
-                  <img
-                    src={`http://localhost:5555/${product.coverImage}`}
-                    alt="cover"
-                    // style={{ position: "relative" }}
-                    width={200}
-                    height={250}
-                  />
-                </td>
-              </tr>
-            ))}
+                  </td>
+                </tr>
+              ))}
         </tbody>
         <tfoot>پایان</tfoot>
       </table>
